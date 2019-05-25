@@ -7,10 +7,10 @@
 //
 
 import UIKit
-class NewTask: UIViewController {
+class NewTask: UIViewController, UITextFieldDelegate {
     //let crossBtn = CommonUIContainer.shared.commonInputButton(withColor: UIColor.white, title: "", alphaVal: CGFloat(1.0), titleColor: UIColor.red)
    // let headerTitle = CommonUIContainer.shared.commonLabelUI(text: "Add New Task", color: UIColor.white, textColor: UIColor.black,font:CGFloat(26))
-    let moduleNameInput = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Module Name")
+    let moduleNameInput = CommonUIContainer.shared.commonUITextField(placeHolder: "Module Name")
     let dateTextFieldStart = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Start Date")
     let dateTextFieldEnd = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Target Date")
     let addBtn = CommonUIContainer.shared.commonInputButton(withColor: UIColor(red:90/255, green:185/255, blue:91/255, alpha:1.0), title: "Add Task", alphaVal: CGFloat(1.0), titleColor: UIColor.white)
@@ -23,8 +23,8 @@ class NewTask: UIViewController {
         moduleNameInput.textAlignment = .center
         dateTextFieldStart.textAlignment = .center
         dateTextFieldEnd.textAlignment = .center
+        moduleNameInput.delegate = self
         moduleNameInput.becomeFirstResponder()
-        
         setupViews()
     }
     func setupViews(){

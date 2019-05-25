@@ -31,17 +31,6 @@ class CommonUIContainer: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }
-    func commonTextView(text: String, color: UIColor,textColor:UIColor) -> UITextView {
-        let textview = UITextView()
-        textview.textAlignment = .left
-        textview.text = text
-        textview.textColor = textColor
-        textview.backgroundColor = color
-        textview.font = .systemFont(ofSize: 16)
-        textview.isEditable = false
-        textview.translatesAutoresizingMaskIntoConstraints = false
-        return textview
-    }
     func commonLabelUI(text: String, color: UIColor,textColor:UIColor,font:CGFloat) -> UILabel {
         let label = UILabel()
         label.textAlignment = .left
