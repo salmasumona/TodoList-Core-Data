@@ -42,7 +42,7 @@ class TaskController: UIViewController {
     @objc func addBtnTapped(_ sender: UIButton){
          let newTC = NewTask()
          newTC.category = category
-         present(newTC, animated: true, completion: { })
+         self.navigationController?.pushViewController(newTC, animated: true)
     }
     func deleteTask(at indexPath: IndexPath){
         guard let task = category?.tasks?[indexPath.row],

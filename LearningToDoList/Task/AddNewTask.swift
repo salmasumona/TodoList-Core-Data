@@ -8,8 +8,8 @@
 
 import UIKit
 class NewTask: UIViewController {
-    let crossBtn = CommonUIContainer.shared.commonInputButton(withColor: UIColor.white, title: "", alphaVal: CGFloat(1.0), titleColor: UIColor.red)
-    let headerTitle = CommonUIContainer.shared.commonLabelUI(text: "Add New Task", color: UIColor.white, textColor: UIColor.black,font:CGFloat(26))
+    //let crossBtn = CommonUIContainer.shared.commonInputButton(withColor: UIColor.white, title: "", alphaVal: CGFloat(1.0), titleColor: UIColor.red)
+   // let headerTitle = CommonUIContainer.shared.commonLabelUI(text: "Add New Task", color: UIColor.white, textColor: UIColor.black,font:CGFloat(26))
     let moduleNameInput = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Module Name")
     let dateTextFieldStart = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Start Date")
     let dateTextFieldEnd = CommonUIContainer.shared.commonInputFieldForForm(placeHolder: "Target Date")
@@ -19,31 +19,34 @@ class NewTask: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.title = "Add New Task"
         moduleNameInput.textAlignment = .center
         dateTextFieldStart.textAlignment = .center
         dateTextFieldEnd.textAlignment = .center
+        moduleNameInput.becomeFirstResponder()
+        
         setupViews()
     }
     func setupViews(){
-        crossBtn.setImage(UIImage(named: "cancel_64"), for: .normal)
-        crossBtn.addTarget(self, action: #selector(pageCloseTapped), for: .touchUpInside)
-        crossBtn.contentMode = .right
-        crossBtn.imageView?.contentMode = .scaleAspectFit
-        crossBtn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: -5)
-        view.addSubview(crossBtn)
-        NSLayoutConstraint.activate([
-            crossBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            crossBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
-            crossBtn.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
-        headerTitle.textAlignment = .center
-        view.addSubview(headerTitle)
-        NSLayoutConstraint.activate([
-            headerTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            headerTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:0.8),
-            headerTitle.heightAnchor.constraint(equalToConstant: 40)
-        ])
+//        crossBtn.setImage(UIImage(named: "cancel_64"), for: .normal)
+//        crossBtn.addTarget(self, action: #selector(pageCloseTapped), for: .touchUpInside)
+//        crossBtn.contentMode = .right
+//        crossBtn.imageView?.contentMode = .scaleAspectFit
+//        crossBtn.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 0, right: -5)
+//        view.addSubview(crossBtn)
+//        NSLayoutConstraint.activate([
+//            crossBtn.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+//            crossBtn.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 5),
+//            crossBtn.heightAnchor.constraint(equalToConstant: 40)
+//        ])
+//
+//        headerTitle.textAlignment = .center
+//        view.addSubview(headerTitle)
+//        NSLayoutConstraint.activate([
+//            headerTitle.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+//            headerTitle.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier:0.8),
+//            headerTitle.heightAnchor.constraint(equalToConstant: 40)
+//        ])
         let stackInputs = CommonUIContainer.shared.commoninputStackView(arr: [moduleNameInput,dateTextFieldStart,dateTextFieldEnd,addBtn])
         dateTextFieldStart.addTarget(self, action: #selector(startdateBtnClicked(_:)),for: .editingDidBegin)
         dateTextFieldEnd.addTarget(self, action: #selector(enddateBtnClicked(_:)),for: .editingDidBegin)
